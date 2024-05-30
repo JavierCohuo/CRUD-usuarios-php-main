@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+}
+
+.users-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 30%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.users-form form input,
+.users-form form select {
+    font-family: 'Segoe UI', sans-serif;
+    padding: 8px;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    outline: none;
+    transition: .3s;
+    -webkit-appearance: none; /* Para eliminar estilos de selección nativos en algunos navegadores */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.users-form form input[type=text],
+.users-form form input[type=password],
+.users-form form input[type=email],
+.users-form form input[type=number],
+.users-form form input[type=date],
+.users-form form select { /* Agregar select aquí */
+    -webkit-appearance: none;
+    appearance: none; /* Para eliminar estilos de selección nativos en algunos navegadores */
+}
+
+/* Estilos específicos para inputs de texto, password, number, date y select en estado de foco */
+.users-form form input[type=text]:focus,
+.users-form form input[type=password]:focus,
+.users-form form input[type=number]:focus,
+.users-form form input[type=date]:focus,
+.users-form form input[type=tel]:focus,
+.users-form form select:focus {
+    border-color: dodgerBlue;
+    box-shadow: 0 0 6px 0 dodgerBlue;
+}
+
+
+.users-form form input[type=submit]{
+    border: none;
+    padding: 12px 50px;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #60a100;
+}
+
+.users-form form input[type=submit]:hover {
+    background-color: #60a100;
+    color: white;
+}
+
+input.search-input:focus {
+    outline: none;
+    border-color: dodgerblue;
+    box-shadow: 0 0 5px dodgerblue;
+}
+
+.users-table table{
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+}
+
+table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 4px;
+}
+
+table th{
+    padding: 16px;
+    text-align: center;
+    font-size: .85em;
+}
+
+.users-table--edit{
+    background: #009688;
+    padding: 6px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
