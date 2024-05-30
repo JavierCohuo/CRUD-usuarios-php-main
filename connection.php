@@ -2,7 +2,7 @@
 
 function connection(){
     $host = "localhost";
-    $user = "";
+    $user = "root";
     $pass = "";
     $bd = "control_escolar_db";
 

@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
             $_SESSION['user_role'] = $row['user_type'];
 
             if ($_SESSION['user_role'] == 'administrador') {
+                $_SESSION['admin_name'] = $row['nombre']; // Asegúrate de establecer esta sesión
                 header('Location: index.php'); // Redirigir al panel de administrador
                 exit();
             } elseif ($_SESSION['user_role'] == 'profesor') {
