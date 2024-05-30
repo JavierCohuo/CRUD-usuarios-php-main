@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $materia_id = $_POST['materia_id'];
 
         // Insertar la asignación en la tabla de relaciones
-        $sql_insert_asignacion = "INSERT INTO profesor_maestria_materia (profesor_id, maestria_id, materia_id) VALUES ($profesor_id, $maestria_id, $materia_id)";
+        $sql_insert_asignacion = "INSERT INTO materias (profesor_id, maestria_id) VALUES ($profesor_id, $maestria_id)";
         mysqli_query($con, $sql_insert_asignacion);
     }
 
@@ -200,7 +200,7 @@ $query_materias = mysqli_query($con, $sql_materias);
                                             <?php
                                             // Consultar las maestrías asignadas al profesor
                                             $profesor_id = $row_profesor['profesor_id'];
-                                            $sql_maestrias_asignadas = "SELECT * FROM maestrias WHERE maestria_id IN (SELECT maestria_id FROM profesor_maestria_materia WHERE profesor_id = $profesor_id)";
+                                            $sql_maestrias_asignadas = "SELECT * FROM maestrias WHERE maestria_id IN (SELECT maestria_id FROM materias WHERE profesor_id = $profesor_id)";
                                             $query_maestrias_asignadas = mysqli_query($con, $sql_maestrias_asignadas);
                                             while ($row_maestria = mysqli_fetch_array($query_maestrias_asignadas)) {
                                                 echo $row_maestria['nombre_maestria'] . "<br>";
@@ -210,7 +210,7 @@ $query_materias = mysqli_query($con, $sql_materias);
                                         <td>
                                             <?php
                                             // Consultar las materias asignadas al profesor
-                                            $sql_materias_asignadas = "SELECT * FROM materias WHERE clave_materia IN (SELECT clave_materia FROM profesor_maestria_materia WHERE profesor_id = $profesor_id)";
+                                            $sql_materias_asignadas = "SELECT * FROM materias WHERE clave_materia IN (SELECT clave_materia FROM maestria_materias WHERE profesor_id = $profesor_id)";
                                             $query_materias_asignadas = mysqli_query($con, $sql_materias_asignadas);
                                             while ($row_materia = mysqli_fetch_array($query_materias_asignadas)) {
                                                 echo $row_materia['nombre_materia'] . "<br>";
